@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import useData from "../../Hooks/useData";
 import ProductCard from "../../Components/ShareComponents/productCard";
 
+
+
 const ShopNow = () => {
   const { products, categorys } = useData();
   const [selectedCategory, setSelectedCategory] = useState(null);
