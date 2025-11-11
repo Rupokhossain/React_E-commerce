@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 const useData = () => {
   const [categorys, setCategorys] = useState([]);
   useEffect(() => {
-    fetch("category.json")
+    fetch("/category.json")
       .then((res) => res.json())
       .then((data) => setCategorys(data));
   }, []);
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("products.json")
+    fetch("/products.json")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

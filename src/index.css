@@ -17,6 +17,9 @@
 .bgp {
   background-color: #5caf90;
 }
+.bgp:hover{
+  background-color: #379572;
+}
 
 
 .custom-bullet {
