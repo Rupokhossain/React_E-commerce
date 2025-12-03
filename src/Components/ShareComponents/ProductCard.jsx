@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
             src={product.image}
             alt=""
           />
-
+ 
           <div>
             <div className="p-4 flex flex-col">
               <p className="text-gray-400 mb-2">{product.categoryName}</p>

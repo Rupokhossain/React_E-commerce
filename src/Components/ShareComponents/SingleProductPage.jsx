@@ -3,8 +3,9 @@ import useData from "../../Hooks/useData";
 import { Link, useParams } from "react-router";
 import { FaStar } from "react-icons/fa";
 import SectionHeading from "./SectionHeading";
-import ProductCard from "./productCard";
+
 import { IoCartOutline } from "react-icons/io5";
+import ProductCard from "./ProductCard";
 
 const SingleProductPage = () => {
   const { id } = useParams();
