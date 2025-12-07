@@ -4,9 +4,11 @@ import { FiPhoneCall } from "react-icons/fi";
 
 const TopHeader = () => {
   return (
-    <div className="py-4 bg-[#F8F8FB]">
-      <div className="flex items-center justify-between container mx-auto">
-        <div className="flex items-center gap-12">
+    <div className="py-2 md:py-4 bg-[#F8F8FB]">
+      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0">
+        
+        {/* Left Section: Phone & Whatsapp */}
+        <div className="md:flex items-center gap-4 md:gap-12 hidden">
           <div className="ct flex items-center gap-2">
             <FiPhoneCall />
             <p className="text-xs">01636755280</p>
@@ -17,17 +19,19 @@ const TopHeader = () => {
           </div>
         </div>
 
-        <div>
+        {/* Center Section: Slogan (Hidden on very small mobile for space, visible on tablet+) */}
+        <div className="hidden lg:block">
           <p className="ct text-xs">
             World's Fastest Online Shopping Destination
           </p>
         </div>
 
-        <div className="flex items-center ct text-xs gap-5 ">
-          <p>Help?</p>
-          <p>Trac Order?</p>
-          <p>English</p>
-          <p>Contact Us</p>
+        {/* Right Section: Menu Links */}
+        <div className="flex items-center ct text-xs gap-3 md:gap-5">
+          <p className="cursor-pointer">Help?</p>
+          <p className="cursor-pointer">Trac Order?</p>
+          <p className="cursor-pointer">English</p>
+          <p className="cursor-pointer">Contact Us</p>
         </div>
       </div>
     </div>

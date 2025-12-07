@@ -1,15 +1,21 @@
 import React from "react";
-import logo from "../../../src/assets/image/logo1.png";
+import logo from "../../../src/assets/image/logo1.png"; // পাথ ঠিক আছে কিনা দেখে নিও
 import { CiShoppingCart, CiUser } from "react-icons/ci";
 
 const MidHeader = () => {
   return (
-    <div>
-      <div className="flex items-center justify-between container mx-auto py-3">
-        <img className="w-20 p-1 -mt-4" src={logo} alt="" />
+    <div className="bg-white">
+      <div className="container mx-auto py-3 px-4 flex flex-wrap md:flex-nowrap items-center justify-between gap-y-4 md:gap-x-8">
+        
+        {/* 1. LOGO (Order-1) */}
+        <div className="order-1">
+          <img className="w-16 md:w-20 p-1 md:-mt-4 object-contain" src={logo} alt="Logo" />
+        </div>
 
-        <div>
-          <label className="input w-md focus-within:outline-none focus:outline-none outline-0 ">
+        {/* 2. SEARCH BAR (Order-3 on Mobile, Order-2 on Desktop) */}
+        {/* w-full on mobile to take full width of the second row */}
+        <div className="order-3 md:order-2 w-full md:w-auto grow max-w-2xl">
+          <label className="input input-bordered flex items-center gap-2 w-full focus-within:outline-none focus:outline-none h-10 md:h-12 bg-gray-100 rounded-full px-4">
             <svg
               className="h-[1em] opacity-50"
               xmlns="http://www.w3.org/2000/svg"
@@ -26,27 +32,37 @@ const MidHeader = () => {
                 <path d="m21 21-4.3-4.3"></path>
               </g>
             </svg>
-            <input type="search" className="w-96 focus-within:outline-0" required placeholder="Search . . ." />
+            <input 
+              type="search" 
+              className="grow bg-transparent border-none outline-none text-sm md:text-base w-full" 
+              required 
+              placeholder="Search . . ." 
+            />
           </label>
         </div>
 
-        <div className="flex items-center gap-8">
-          <div className="flex items-center gap-1">
-            <CiUser className="text-3xl"/>
-            <div className="">
-              <p className="ct">Account</p>
-              <p className="ts">Login</p>
+        {/* 3. ICONS (Order-2 on Mobile, Order-3 on Desktop) */}
+        {/* Moves to the right of Logo on mobile */}
+        <div className="order-2 md:order-3 flex items-center gap-4 md:gap-8">
+          {/* Account Icon */}
+          <div className="flex items-center gap-1 cursor-pointer hover:text-primary transition-colors">
+            <CiUser className="text-2xl md:text-3xl" />
+            <div className="hidden sm:block"> {/* Text hidden on very small screens if needed, or keep block */}
+              <p className="ct text-xs text-gray-500">Account</p>
+              <p className="ts text-sm font-semibold">Login</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1">
-            <CiShoppingCart  className="text-3xl"/>
-            <div className="">
-              <p className="ct">Cart</p>
-              <p className="ts">Login</p>
+          {/* Cart Icon */}
+          <div className="flex items-center gap-1 cursor-pointer hover:text-primary transition-colors">
+            <CiShoppingCart className="text-2xl md:text-3xl" />
+            <div className="hidden sm:block">
+              <p className="ct text-xs text-gray-500">Cart</p>
+              <p className="ts text-sm font-semibold">Login</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
