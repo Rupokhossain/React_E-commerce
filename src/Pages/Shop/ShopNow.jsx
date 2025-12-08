@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useData from "../../Hooks/useData";
-import ProductCard from "../../Components/ShareComponents/productCard";
+import ProductCard from "../../Components/ShareComponents/ProductCard";
 
 const ShopNow = () => {
   const { products, categorys } = useData();
