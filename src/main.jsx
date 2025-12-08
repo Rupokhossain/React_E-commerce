@@ -9,9 +9,8 @@ import About from "./Pages/About/About";
 import ShopNow from "./Pages/Shop/ShopNow";
 import Blog from "./Pages/Blog/Blog";
 import Contact from "./Pages/Contact/Contact";
-import SingleProductPage from "./Components/ShareComponents/SingleProductPage";
 import BlogDetails from "./Pages/Blog/BlogComponents/BlogDetails";
-
+import SingleProductPage from "./Components/ShareComponents/SingleProductPage";
 const router = createBrowserRouter([
   {
     path: "/",
