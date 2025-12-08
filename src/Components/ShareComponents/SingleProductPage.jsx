@@ -3,7 +3,7 @@ import useData from "../../Hooks/useData";
 import { Link, useParams } from "react-router";
 import { FaStar } from "react-icons/fa";
 import SectionHeading from "./SectionHeading";
-import ProductCard from "./productCard";
+import ProductCard from "./ProductCard";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -11,10 +11,8 @@ const SingleProductPage = () => {
   const findProducts = products.find((p) => p.id == id);
 
   return (
-    // কন্টেইনার প্যাডিং রেস্পন্সিভ করা হয়েছে
     <div className="container mx-auto py-10 md:py-16 px-4 md:px-8 lg:px-16 xl:px-24">
       
-      {/* মেইন গ্রিড: মোবাইলে ১ কলাম, ল্যাপটপে ২ কলাম */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         
         {/* ----------- Image Section ----------- */}
@@ -22,7 +20,6 @@ const SingleProductPage = () => {
           <img
             src={findProducts?.image}
             alt={findProducts?.title}
-            // ইমেজ সাইজ রেস্পন্সিভ এবং হোভার ইফেক্ট দেওয়া হয়েছে
             className="w-full h-64 sm:h-80 md:h-96 lg:h-[450px] object-contain group-hover:scale-105 transition-transform duration-500"
           />
         </div>
@@ -122,7 +119,6 @@ const SingleProductPage = () => {
           ></SectionHeading>
         </div>
         
-        {/* প্রোডাক্ট গ্রিড রেস্পন্সিভ করা হয়েছে */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {products.slice(0, 5).map((p) => (
             <ProductCard key={p.id} product={p}></ProductCard>
