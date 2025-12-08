@@ -122,32 +122,63 @@ const BlogDetails = () => {
 
   if (!blog) {
     return (
-      <div className="container mx-auto text-center py-20">
-        <h2 className="text-2xl font-bold mb-4">Blog Not Found</h2>
-        <Link to="/blog" className="text-green-600 underline">
-          ← Back to Blog
+      <div className="container mx-auto text-center py-20 px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">Blog Not Found</h2>
+        <p className="text-gray-500 mb-6">The blog post you are looking for doesn't exist.</p>
+        <Link to="/blog" className="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-all">
+          Back to Blog
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto py-16 px-4 flex flex-col justify-start items-center">
-      <img
-        src={blog.image}
-        alt={blog.title}
-        className="w-96 h-96 object-cover rounded-2xl mb-8"
-      />
-      <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
-      <p className="text-gray-500 mb-6">
-        {blog.date} • By {blog.author}
-      </p>
-      <div className="text-gray-700 whitespace-pre-line leading-relaxed mb-10">
-        {blog.content}
+    <div className="container mx-auto py-10 md:py-16 px-4 md:px-8 lg:px-16 max-w-4xl">
+      
+      <div className="mb-6 md:mb-8">
+        <Link
+          to="/blog"
+          className="text-gray-500 font-semibold hover:text-green-600 transition-all flex items-center gap-2 w-max"
+        >
+          <span>←</span> Back to All Blogs
+        </Link>
       </div>
-      <Link to="/blog" className="text-green-600 font-semibold hover:underline">
-        ← Back to All Blogs
-      </Link>
+
+      <div className="w-full h-64 sm:h-80 md:h-[450px] overflow-hidden rounded-xl shadow-lg mb-8 bg-gray-100">
+        <img
+          src={blog.image}
+          alt={blog.title}
+          className="w-full h-full object-cover object-center"
+        />
+      </div>
+
+      <div className="flex flex-col">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900 leading-tight">
+          {blog.title}
+        </h1>
+
+        <div className="flex items-center gap-4 text-sm md:text-base text-gray-500 mb-8 border-b border-gray-100 pb-6">
+          <p className="bg-green-50 text-green-700 px-3 py-1 rounded-full font-medium">
+             {blog.date}
+          </p>
+          <p>
+            By <span className="font-semibold text-gray-800">{blog.author}</span>
+          </p>
+        </div>
+
+        <div className="text-gray-700 text-base md:text-lg lg:text-xl whitespace-pre-line leading-relaxed md:leading-loose">
+          {blog.content}
+        </div>
+      </div>
+
+      <div className="mt-12 pt-8 border-t border-gray-100">
+        <Link 
+            to="/blog" 
+            className="inline-block px-6 py-3 border border-green-600 text-green-600 font-semibold rounded-md hover:bg-green-600 hover:text-white transition-all duration-300"
+        >
+            View More Blogs
+        </Link>
+      </div>
     </div>
   );
 };

@@ -12,12 +12,12 @@ const Home = () => {
   return (
     <div>
       <Hero></Hero>
-      {/* <HomeCategory></HomeCategory> */}
-      {/* <PopularProduct></PopularProduct> */}
-      {/* <LatestExclusive></LatestExclusive> */}
-      {/* <NewProducts></NewProducts> */}
-      {/* <Collection></Collection> */}
-      {/* <Support></Support> */}
+      <HomeCategory></HomeCategory>
+      <PopularProduct></PopularProduct>
+      <LatestExclusive></LatestExclusive>
+      <NewProducts></NewProducts>
+      <Collection></Collection>
+      <Support></Support>
     </div>
   )
 }

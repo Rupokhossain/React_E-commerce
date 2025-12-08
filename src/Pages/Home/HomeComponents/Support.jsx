@@ -35,9 +35,9 @@ const Support = () => {
   ];
   return (
     <div>
-      <div className="container mx-auto grid grid-cols-4 gap-4  cursor-pointer px-24">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 cursor-pointer px-4 md:px-12 lg:px-24 py-10">
         {features.map((f) => (
-          <div>
+          <div key={f.id}>
             <div className="border border-gray-200 text-center rounded-md px-4 py-6 h-full hover:shadow-lg transition-all duration-300">
               {f.icon}
               <p className=" text-gray-500 font-semibold my-2">{f.title}</p>

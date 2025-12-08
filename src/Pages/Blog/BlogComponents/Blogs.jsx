@@ -87,10 +87,10 @@ const Blogs = () => {
   ];
 
   return (
-    <div>
-      <div className="container mx-auto py-16 px-4">
+    <div className="bg-gray-50/50">
+      <div className="container mx-auto py-10 md:py-16 px-4 md:px-8 lg:px-16 xl:px-24">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
           <SectionHeading
             heading={"Our "}
             colorHeading={"Blogs"}
@@ -100,30 +100,53 @@ const Blogs = () => {
           ></SectionHeading>
         </div>
 
-        {/* Blog Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Blog Grid: Responsive (Mobile: 1, Tab: 2, Laptop: 3, Desktop: 4) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="bg-white rounded-2xl cursor-pointer shadow hover:shadow-lg transition-all duration-300 overflow-hidden"
+              className="bg-white rounded-xl cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col h-full border border-gray-100"
             >
-              <img src={blog.image} alt={blog.title} className="w-[360px] h-[200px] object-top-left" />
-              <div className="p-4">
-                <p className="text-sm text-gray-400 mb-2">
-                  {blog.date} • By {blog.author} • {blog.category}
-                </p>
-                <h3 className="text-xl font-semibold mb-2 h-12">
+              {/* Image Container with Overflow Hidden */}
+              <div className="relative overflow-hidden h-52 sm:h-56 rounded-t-xl">
+                <img 
+                  src={blog.image} 
+                  alt={blog.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                />
+                {/* Optional Category Badge on Image */}
+                <span className="absolute top-3 left-3 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm">
+                  {blog.category}
+                </span>
+              </div>
+
+              {/* Card Content */}
+              <div className="p-5 flex flex-col grow">
+                {/* Date & Author */}
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
+                   <span>{blog.date}</span>
+                   <span>By {blog.author}</span>
+                </div>
+
+                {/* Title (Line clamped to 2 lines) */}
+                <h3 className="text-lg font-bold text-gray-800 mb-3 leading-snug line-clamp-2 group-hover:text-green-600 transition-colors">
                   {blog.title}
                 </h3>
-                <p className="text-gray-600 text-sm h-28">
+                
+                {/* Description (Line clamped to 3 lines) */}
+                <p className="text-gray-500 text-sm mb-4 line-clamp-3 grow">
                   {blog.desc}
                 </p>
-                <Link
-                  to={`/blog/${blog.id}`}
-                  className="text-green-600 font-semibold hover:underline"
-                >
-                  Read More →
-                </Link>
+
+                {/* Read More Link */}
+                <div className="mt-auto pt-3 border-t border-gray-100">
+                    <Link
+                    to={`/blog/${blog.id}`}
+                    className="text-green-600 font-semibold text-sm hover:underline flex items-center gap-1 transition-all"
+                    >
+                    Read More <span className="text-lg">→</span>
+                    </Link>
+                </div>
               </div>
             </div>
           ))}
