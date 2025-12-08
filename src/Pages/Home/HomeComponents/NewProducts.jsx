@@ -1,7 +1,7 @@
 import React from "react";
 import SectionHeading from "../../../Components/ShareComponents/SectionHeading";
-import ProductCard from "../../../Components/ShareComponents/productCard";
 import useData from "../../../Hooks/useData";
+import ProductCard from "../../../Components/ShareComponents/ProductCard";
 
 const NewProducts = () => {
 
