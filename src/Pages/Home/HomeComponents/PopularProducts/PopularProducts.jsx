@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import SectionHeading from "../../../../Components/ShareComponents/SectionHeading";
 import useData from "../../../../Hooks/useData";
-import ProductCard from "../../../../Components/ShareComponents/productCard";
-import { TbCategory } from "react-icons/tb";
+import ProductCard from "../../../../Components/ShareComponents/ProductCard";
 import { Link } from "react-router";
+import { TbCategory } from "react-icons/tb";
 
-const PopularProduct = () => {
+const PopularProducts = () => {
   const { categorys, products } = useData();
   const [categoryId, setCategoryId] = useState();
   const handleCategoryId = (id) => {
@@ -15,12 +15,8 @@ const PopularProduct = () => {
   const filterProduct = categoryId
     ? products.filter((p) => p.categoryId == categoryId)
     : products;
-
   return (
-
     <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-24 py-10 md:py-16">
-      
-
       <div className="flex flex-col xl:flex-row items-center justify-between gap-6 xl:gap-0 text-center xl:text-start">
         <SectionHeading
           heading={"Popular"}
@@ -28,15 +24,16 @@ const PopularProduct = () => {
           description={"Shop online for new arrivals and get free shipping!"}
         ></SectionHeading>
 
-        {/* ক্যাটাগরি লিস্ট: মোবাইলে wrap হয়ে সুন্দরভাবে সাজানো থাকবে */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-6 lg:gap-8">
           {categorys.map((category) => (
-            <div key={category?.id}> {/* Key prop added for safety */}
+            <div key={category?.id}>
+              {" "}
               <p
                 onClick={() => handleCategoryId(category?.id)}
-                // ক্যাটাগরি টেক্সট হোভার এফেক্ট এবং রেস্পন্সিভ ফন্ট সাইজ
                 className={`cursor-pointer font-medium text-sm md:text-base transition-colors duration-300 hover:text-green-600 ${
-                    categoryId === category?.id ? "text-green-600 font-bold" : "text-gray-600"
+                  categoryId === category?.id
+                    ? "text-green-600 font-bold"
+                    : "text-gray-600"
                 }`}
               >
                 {category?.name}
@@ -47,7 +44,6 @@ const PopularProduct = () => {
       </div>
 
       <div>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 md:gap-6 pt-10 md:pt-14">
           {filterProduct
             .sort((a, b) => b.rating - a.rating)
@@ -70,4 +66,4 @@ const PopularProduct = () => {
   );
 };
 
-export default PopularProduct;
+export default PopularProducts;

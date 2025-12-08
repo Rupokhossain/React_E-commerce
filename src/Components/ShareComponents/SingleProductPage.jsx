@@ -1,6 +1,6 @@
 import React from "react";
-import useData from "../../Hooks/useData";
 import { Link, useParams } from "react-router";
+import useData from "../../Hooks/useData";
 import { FaStar } from "react-icons/fa";
 import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
@@ -9,12 +9,9 @@ const SingleProductPage = () => {
   const { id } = useParams();
   const { products } = useData();
   const findProducts = products.find((p) => p.id == id);
-
   return (
     <div className="container mx-auto py-10 md:py-16 px-4 md:px-8 lg:px-16 xl:px-24">
-      
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        
         {/* ----------- Image Section ----------- */}
         <div className="flex items-center justify-center bg-gray-50 border border-gray-100 rounded-2xl overflow-hidden p-6 relative group">
           <img
@@ -29,7 +26,7 @@ const SingleProductPage = () => {
           <p className="text-sm text-green-600 font-bold bg-green-50 w-max px-3 py-1 rounded-full mb-2">
             {findProducts?.categoryName}
           </p>
-          
+
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3">
             {findProducts?.name}
           </h3>
@@ -61,15 +58,24 @@ const SingleProductPage = () => {
               {findProducts?.description}
             </p>
             <div className="pt-2">
-                <p className="font-semibold text-gray-800">
-                SKU : <span className="font-normal text-gray-500 ml-2">{findProducts?.sku}</span>
-                </p>
-                <p className="font-semibold text-gray-800">
-                Stock : <span className="font-normal text-gray-500 ml-2">{findProducts?.stock}</span>
-                </p>
-                <p className="font-semibold text-gray-800">
-                Closure : <span className="font-normal text-gray-500 ml-2">{findProducts?.closure}</span>
-                </p>
+              <p className="font-semibold text-gray-800">
+                SKU :{" "}
+                <span className="font-normal text-gray-500 ml-2">
+                  {findProducts?.sku}
+                </span>
+              </p>
+              <p className="font-semibold text-gray-800">
+                Stock :{" "}
+                <span className="font-normal text-gray-500 ml-2">
+                  {findProducts?.stock}
+                </span>
+              </p>
+              <p className="font-semibold text-gray-800">
+                Closure :{" "}
+                <span className="font-normal text-gray-500 ml-2">
+                  {findProducts?.closure}
+                </span>
+              </p>
             </div>
           </div>
 
@@ -88,11 +94,15 @@ const SingleProductPage = () => {
           {/* Cart Buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-4 border border-gray-300 md:px-6 md:py-3 px-4 py-2 rounded-md">
-              <button className="cursor-pointer hover:text-green-600 text-xl font-bold">-</button>
+              <button className="cursor-pointer hover:text-green-600 text-xl font-bold">
+                -
+              </button>
               <p className="font-semibold w-4 text-center">1</p>
-              <button className="cursor-pointer hover:text-green-600 text-xl font-bold">+</button>
+              <button className="cursor-pointer hover:text-green-600 text-xl font-bold">
+                +
+              </button>
             </div>
-            
+
             <button className="flex-1 sm:flex-none bgp cursor-pointer hover:bg-green-700 text-white md:px-8 md:py-3 px-4 py-2 rounded-md font-semibold shadow-md hover:shadow-lg transition-all duration-300">
               Add To Cart
             </button>
@@ -115,10 +125,12 @@ const SingleProductPage = () => {
           <SectionHeading
             heading={"Top Rated"}
             colorHeading={"Selling Products"} // Spelling fixed: Seleing -> Selling
-            description={"High-quality denim jeans for men with a comfortable fit."}
+            description={
+              "High-quality denim jeans for men with a comfortable fit."
+            }
           ></SectionHeading>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
           {products.slice(0, 5).map((p) => (
             <ProductCard key={p.id} product={p}></ProductCard>
